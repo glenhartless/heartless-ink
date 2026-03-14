@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Glen Hartless | Tattoo Artist London & Toronto | Illustrative Realism</title>
+
+  <meta name="description" content="Glen Hartless is an international illustrative realism tattoo artist working between London and Toronto. Specializing in black and grey portraits and large-scale custom tattoo work." />
+  <meta name="keywords" content="Tattoo Artist London Ontario, Tattoo Artist Toronto, Black and Grey Tattoo London, Portrait Tattoo Artist Toronto, Realism Tattoo Ontario" />
+  <meta name="author" content="Glen Hartless" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg: #0c0c0e;
+      --text: #f2f1ee;
+      --accent: #6e0f17;
+    }
+
+    * { box-sizing: border-box; }
+
+    body{
+      margin:0;
+      font-family:'Inter', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+    }
+
+    /* =========================
+       INTRO OVERLAY (VIDEO)
+    ========================= */
+    #intro{
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+ #intro video{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: #000; /* prevents ugly empty areas */
+}
+
+    #intro.fade-out{
+      animation: introFade 1.2s ease forwards;
+    }
+
+    @keyframes introFade{
+      from { opacity: 1; }
+      to   { opacity: 0; visibility: hidden; }
+    }
+
+    #skipIntro{
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(0,0,0,0.25);
+      color: #fff;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+    header{
+      height: 100vh;
+      background:
+        radial-gradient(1000px 600px at 20% 30%, rgba(110,15,23,0.15), rgba(0,0,0,0) 60%),
+        linear-gradient(to bottom, rgba(12,12,14,0.78), rgba(12,12,14,0.95)),
+        url('hero.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 8%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* NAV */
+    .nav{
+      position: absolute;
+      top: 15px;            /* move up a bit above the arm like you asked */
+      left: 8%;
+      z-index: 5;
+    }
+
+    .logo{
+      height: 600px;        /* your “big” desktop logo */
+      width: auto;
+      max-width: none;
+      opacity: 0.98;
+      display: block;
+    }
+
+    /* HERO TEXT */
+.hero-content{
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
+  margin-top: 18vh;   /* pushes text down */
+}
+
+ h1{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(7.5rem, 11vw, 13rem);
+  letter-spacing: 0.12em;
+  margin: 0 0 30px 0;
+  line-height: 0.95;
+}
+
+    .location{
+      letter-spacing: 8px;
+      font-size: 1.2rem;
+      margin-bottom: 26px;
+      opacity: 0.75;
+      text-transform: uppercase;
+    }
+
+    .subtitle{
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  margin-bottom: 60px;
+  opacity: 1;
+}
+
+.btn{
+  display: inline-block;
+  padding: 20px 48px;
+  border: 2px solid var(--accent);
+  text-decoration: none;
+  color: var(--text);
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+  margin-right: 24px;
+}
+
+    .btn:hover{
+      background: var(--accent);
+      box-shadow: 0 0 20px rgba(110,15,23,0.6);
+    }
+
+    /* SECTIONS */
+    section{
+      padding: 140px 8%;
+      width: 100%;
+      max-width: none;
+    }
+
+    section h2{
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    p{
+      font-size: 1.35rem;
+      line-height: 2.1;
+      font-weight: 300;
+      margin-bottom: 40px;
+      max-width: 1400px;
+    }
+
+    footer{
+      text-align: center;
+      padding: 80px 20px;
+      background: #0f0f12;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      border-top: 1px solid var(--accent);
+    }
+
+    a{
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* =========================
+       MOBILE / TABLET
+    ========================= */
+    @media (max-width: 900px){
+      header{
+        padding: 0 7%;
+        background-position: center;
+      }
+
+      /* Logo: big but controlled */
+      .nav{
+        left: 50%;
+        transform: translateX(-50%);
+        top: 16px;
+      }
+
+      .logo{
+        height: 160px;
+        max-width: 86vw;
+      }
+
+      .hero-content{
+        max-width: 100%;
+        padding-top: 240px;
+      }
+
+      h1{
+        font-size: clamp(3.2rem, 9vw, 5rem);
+        letter-spacing: 0.10em;
+        margin-bottom: 14px;
+      }
+
+      .location{
+        font-size: 0.95rem;
+        letter-spacing: 5px;
+        margin-bottom: 16px;
+      }
+
+      .subtitle{
+        font-size: 1.55rem;
+        margin-bottom: 26px;
+      }
+
+      .btn{
+        display: block;
+        width: 100%;
+        max-width: 340px;
+        text-align: center;
+        padding: 16px 22px;
+        margin: 0 0 12px 0;
+      }
+    }
+
+    @media (max-width: 480px){
+      .logo{
+        height: 135px;
+      }
+
+      .hero-content{
+        padding-top: 210px;
+      }
+
+      h1{
+        font-size: 3.0rem;
+        letter-spacing: 0.09em;
+      }
+
+      .subtitle{
+        font-size: 1.35rem;
+      }
+
+      section{
+        padding: 90px 7%;
+      }
+
+      p{
+        font-size: 1.05rem;
+        line-height: 1.85;
+        margin-bottom: 26px;
+        max-width: 100%;
+      }
+    }
+
+    /* MOBILE INTRO VIDEO FIX (show full frame) */
+    @media (max-width: 640px){
+      #intro video{
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- INTRO VIDEO -->
+  <div id="intro">
+    <video id="introVideo" autoplay muted playsinline preload="auto">
+      <source src="intro.mp4" type="video/mp4" />
+    </video>
+    <button id="skipIntro" type="button">SKIP</button>
+  </div>
+
+  <header>
+    <div class="nav">
+      <img src="logo.png" class="logo" alt="Glen Hartless Logo" />
+    </div>
+
+    <div class="hero-content">
+      <h1>GLEN HARTLESS</h1>
+      <div class="location">LONDON • TORONTO</div>
+      <div class="subtitle">Illustrative Realism Tattoo Artist</div>
+
+      <!-- View Work now goes to a separate page -->
+      <a href="work.html" class="btn">View Work</a>
+      <a href="#booking" class="btn">Book Session</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About</h2>
+
+    <p>
+      Glen Hartless began tattooing in the winter of 2007 and has built an international career
+      defined by discipline, adaptability, and technical precision. Specializing in illustrative
+      realism and black & grey portraiture, his work is structured to hold integrity over time.
+    </p>
+
+    <p>
+      Having lived and tattooed around the world — from Australia to the United Kingdom — Glen
+      has worked at dozens of international conventions, refining a globally influenced and
+      performance-driven approach to tattooing.
+    </p>
+
+    <p>
+      A Pro Team Artist sponsored by EMALLA, Glen works with industry-leading equipment to
+      maintain consistency and technical excellence across every project.
+    </p>
+
+    <p>
+      Throughout his career, he has tattooed public figures and recording artists including
+      Justin Bieber, Chris Brown, 21 Savage, Drake, Christie Mack, Angelina Jolie,
+      and many others. He has tattooed live on MTV and MuchMusic, and once completed a tattoo
+      mid-flight at 10,000 feet.
+    </p>
+
+    <p>
+      Glen is known for taking on technically demanding projects, particularly large-scale
+      compositions and complex cover-ups, approaching each piece with intensity and control.
+    </p>
+  </section>
+
+  <section id="booking">
+    <h2>Enquiries</h2>
+
+    <p>
+      For consultations and project inquiries, please email directly with a detailed description of your concept,
+      placement, approximate size, and reference material.
+    </p>
+
+    <a href="mailto:glen@glenhartless.com" class="btn">glen@glenhartless.com</a>
+
+    <p style="margin-top:50px;">Follow on Instagram</p>
+    <a href="https://instagram.com/glenhartless" target="_blank" rel="noopener noreferrer">@glenhartless</a>
+  </section>
+
+  <footer>
+    London & Toronto, Ontario
+    <br><br>
+    © 2026 Glen Hartless
+  </footer>
+
+  <script>
+    (function(){
+      const intro = document.getElementById('intro');
+      const video = document.getElementById('introVideo');
+      const skip  = document.getElementById('skipIntro');
+
+      const fadeDuration = 1.2;          // seconds (matches CSS)
+      const fadeStartBeforeEnd = 1.2;    // seconds before video ends
+
+      function fadeOut(){
+        if (!intro || intro.classList.contains('fade-out')) return;
+        intro.classList.add('fade-out');
+        setTimeout(() => { if (intro) intro.remove(); }, (fadeDuration * 1000) + 100);
+      }
+
+      skip.addEventListener('click', fadeOut);
+
+      video.addEventListener('loadedmetadata', () => {
+        const timer = setInterval(() => {
+          if (!video.duration) return;
+          if ((video.duration - video.currentTime) <= fadeStartBeforeEnd) {
+            clearInterval(timer);
+            fadeOut();
+          }
+        }, 120);
+      });
+
+      video.addEventListener('error', fadeOut);
+    })();
+  </script>
+
+</body>
+</html>
