@@ -52,6 +52,7 @@ object-fit:cover;
 
 #intro.fade-out{
 animation:introFade 1.2s ease forwards;
+pointer-events:none;
 }
 
 @keyframes introFade{
@@ -262,11 +263,116 @@ max-width:100%;
 <body>
 
 <div id="intro">
-<video id="introVideo" autoplay muted playsinline preload="auto">
-<source src="intro.mp4" type="video/mp4" />
-</video>
-
-<button id="skipIntro">SKIP</button>
+  <video id="introVideo" autoplay muted playsinline preload="auto" disablepictureinpicture>
+    <source src="intro.mp4" type="video/mp4" />
+  </video>
+  <button id="skipIntro">SKIP</button>
 </div>
 
-<!-- THE REST OF YOUR PAGE IS IDENTICAL -->
+<header>
+  <div class="nav">
+    <img src="logo.png" class="logo" alt="Glen Hartless Logo" />
+  </div>
+
+  <div class="hero-content">
+    <h1>GLEN HARTLESS</h1>
+    <div class="location">LONDON • TORONTO</div>
+    <div class="subtitle">Illustrative Realism Tattoo Artist</div>
+
+    <a href="work.html" class="btn">View Work</a>
+    <a href="#booking" class="btn">Book Session</a>
+  </div>
+</header>
+
+<section id="about">
+  <h2>About</h2>
+
+  <p>
+    Glen Hartless began tattooing in the winter of 2007 and has built an international career
+    defined by discipline, adaptability, and technical precision. Specializing in illustrative
+    realism and black & grey portraiture, his work is structured to hold integrity over time.
+  </p>
+
+  <p>
+    Having lived and tattooed around the world — from Australia to the United Kingdom — Glen
+    has worked at dozens of international conventions, refining a globally influenced and
+    performance-driven approach to tattooing.
+  </p>
+
+  <p>
+    A Pro Team Artist sponsored by EMALLA, Glen works with industry-leading equipment to
+    maintain consistency and technical excellence across every project.
+  </p>
+
+  <p>
+    Throughout his career, he has tattooed public figures and recording artists including
+    Justin Bieber, Chris Brown, 21 Savage, Drake, Christie Mack, Angelina Jolie,
+    and many others. He has tattooed live on MTV and MuchMusic, and once completed a tattoo
+    mid-flight at 10,000 feet.
+  </p>
+
+  <p>
+    Glen is known for taking on technically demanding projects, particularly large-scale
+    compositions and complex cover-ups, approaching each piece with intensity and control.
+  </p>
+</section>
+
+<section id="booking">
+  <h2>Enquiries</h2>
+
+  <p>
+    For consultations and project inquiries, please email directly with a detailed description of your concept,
+    placement, approximate size, and reference material.
+  </p>
+
+  <a href="mailto:glen@glenhartless.com" class="btn">glen@glenhartless.com</a>
+
+  <p style="margin-top:50px;">Follow on Instagram</p>
+  <a href="https://instagram.com/glenhartless" target="_blank" rel="noopener noreferrer">@glenhartless</a>
+</section>
+
+<footer>
+  London & Toronto, Ontario
+  <br><br>
+  © 2026 Glen Hartless
+</footer>
+
+<script>
+(function () {
+  const intro = document.getElementById('intro');
+  const video = document.getElementById('introVideo');
+  const skip = document.getElementById('skipIntro');
+
+  if (!intro || !video) return;
+
+  let faded = false;
+
+  function fadeOutIntro() {
+    if (faded) return;
+    faded = true;
+    intro.classList.add('fade-out');
+
+    setTimeout(() => {
+      if (intro && intro.parentNode) {
+        intro.parentNode.removeChild(intro);
+      }
+    }, 1300);
+  }
+
+  if (skip) {
+    skip.addEventListener('click', fadeOutIntro);
+  }
+
+  video.addEventListener('ended', fadeOutIntro);
+  video.addEventListener('error', fadeOutIntro);
+
+  video.addEventListener('timeupdate', function () {
+    if (video.duration && video.currentTime >= video.duration - 1.0) {
+      fadeOutIntro();
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
